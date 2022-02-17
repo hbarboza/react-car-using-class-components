@@ -1,8 +1,8 @@
 import { Component } from "react";
 import Productos from "./Components/Productos";
 import Layout from "./Components/Layout";
-import Title from "./Components/Title"
-import Nav from "./Components/Navbar"
+import Title from "./Components/Title";
+import Nav from "./Components/Navbar";
 
 class App extends Component {
   //definir el state
@@ -31,16 +31,17 @@ class App extends Component {
 
   //Definir el método para agregar al carro
   agregarAlCarro = producto => {
-    const {carro} = this.state
-    if(carro.find(x => x.name === producto.name)){
-      const newCarro = carro.map(x => x.name === producto.name
-      ?({
-        ...x,
-        cantidad: x.cantidad + 1
-      })
-      : x
-      )
-      return this.setState({carro: newCarro})
+    const { carro } = this.state;
+    if (carro.find(x => x.name === producto.name)) {
+      const newCarro = carro.map(x =>
+        x.name === producto.name
+          ? {
+              ...x,
+              cantidad: x.cantidad + 1
+            }
+          : x
+      );
+      return this.setState({ carro: newCarro });
     }
 
     //console.log(producto)
@@ -53,19 +54,22 @@ class App extends Component {
   };
 
   mostrarCarro = () => {
-    if(!this.state.carro.length){
-      return
+    if (!this.state.carro.length) {
+      return;
     }
-    this.setState ({ esCarroVisible: !this.state.esCarroVisible })
-  }
+    this.setState({ esCarroVisible: !this.state.esCarroVisible });
+  };
 
   render() {
-    
-    const { esCarroVisible, mostrarCarro } = this.state
+    const { esCarroVisible } = this.state;
 
     return (
       <div>
-        <Nav carro={this.state.carro}  esCarroVisible={esCarroVisible} mostrarCarro={this.mostrarCarro}/>
+        <Nav
+          carro={this.state.carro}
+          esCarroVisible={esCarroVisible}
+          mostrarCarro={this.mostrarCarro}
+        />
         <Layout>
           <Title />
           <Productos
