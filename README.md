@@ -1,5 +1,5 @@
 # Check project online here
-[Click here] (https://react-car-using-class-components.netlify.app/)
+[Click here](https://react-car-using-class-components.netlify.app/)
 
 # Getting Started with Create React App
 
